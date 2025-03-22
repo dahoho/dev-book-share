@@ -12,9 +12,9 @@ const routeContextSchema = z.object({
 
 export async function PATCH(
   req: NextRequest,
-  context: { params: { postId: string } }
+  { params }: { params: Promise<{ postId: string }> }
 ) {
-  const resolvedParams = await Promise.resolve(context.params);
+  const resolvedParams = await Promise.resolve(params);
   const { postId } = routeContextSchema.shape.params.parse(resolvedParams);
 
   try {
@@ -49,9 +49,9 @@ export async function PATCH(
 
 export async function DELETE(
   req: NextRequest,
-  context: { params: { postId: string } }
+  { params }: { params: Promise<{ postId: string }> }
 ) {
-  const resolvedParams = await Promise.resolve(context.params);
+  const resolvedParams = await Promise.resolve(params);
   const { postId } = routeContextSchema.shape.params.parse(resolvedParams);
 
   try {
