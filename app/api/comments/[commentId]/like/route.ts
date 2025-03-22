@@ -4,9 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(
   req: NextRequest,
-  context: { params: { commentId: string } }
+  { params }: { params: Promise<{ commentId: string }> }
 ) {
-  const { commentId } = await context.params;
+  const { commentId } = await params;
   const user = await getCurrentUser();
   if (!user) return NextResponse.json("Unauthorized", { status: 401 });
 
@@ -36,9 +36,9 @@ export async function POST(
 
 export async function GET(
   req: NextRequest,
-  context: { params: { commentId: string } }
+  { params }: { params: Promise<{ commentId: string }> }
 ) {
-  const { commentId } = await context.params;
+  const { commentId } = await params;
   const user = await getCurrentUser();
 
   // 対象コメントのいいね件数をカウント
