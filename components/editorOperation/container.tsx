@@ -19,7 +19,7 @@ type PostWithAuthor = Post & {
 };
 
 type EditorOperationContainerType = {
-  post: PostWithAuthor;
+  post: PostWithAuthor | null;
   postId: string;
 };
 

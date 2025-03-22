@@ -11,8 +11,6 @@ export default async function EditorPage({ params }: EditorPagePropsType) {
   const { postId } = await params;
   const post = await fetchPostById(postId);
 
-  if (!post) return;
-
   return (
     <LayoutContainer>
       <MainLayout>
