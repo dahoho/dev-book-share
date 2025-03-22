@@ -1,5 +1,6 @@
 import { User } from "next-auth";
 import { useState, useEffect } from "react";
+import { toast } from "sonner";
 
 type CommentListPropsType = {
   initialComment: {
@@ -54,13 +55,19 @@ export const useCommentReply = ({
       });
 
       if (!response.ok) {
-        console.error("返信の投稿に失敗しました");
-        return;
+        return toast.error("問題が発生しました", {
+          description:
+            "コメントが投稿されませんでした。もう一度お試しください。",
+        });
       }
 
       const newReply = await response.json();
       setReplies((prev) => [...prev, newReply]);
       setIsReplying(false);
+
+      toast.success("success", {
+        description: "コメントが正常に投稿されました",
+      });
     } catch (error) {
       console.error(error);
     }

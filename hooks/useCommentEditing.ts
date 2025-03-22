@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 
 export type CommentEditingType = {
   author: {
@@ -32,8 +33,14 @@ export const useCommentEditing = (initialComment: CommentEditingType) => {
         const updatedComment: CommentEditingType = await res.json();
         setComment(updatedComment);
         setIsEditing(false);
+        toast.success("success", {
+          description: "コメントが正常に投稿されました",
+        });
       } else {
-        console.error("コメントの更新に失敗しました");
+        return toast.error("問題が発生しました", {
+          description:
+            "コメントが投稿されませんでした。もう一度お試しください。",
+        });
       }
     } catch (error) {
       console.error(error);
