@@ -39,6 +39,7 @@ export async function GET(
   { params }: { params: Promise<{ commentId: string }> }
 ) {
   const { commentId } = await params;
+
   const user = await getCurrentUser();
 
   // 対象コメントのいいね件数をカウント

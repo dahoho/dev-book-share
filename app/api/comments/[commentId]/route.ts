@@ -6,10 +6,9 @@ import { z } from "zod";
 
 export async function DELETE(
   req: NextRequest,
-  context: { params: { commentId: string } }
+  { params }: { params: Promise<{ commentId: string }> }
 ) {
-  const resolvedParams = await Promise.resolve(context.params);
-  const { commentId } = resolvedParams;
+  const { commentId } = await params;
 
   const user = await getCurrentUser();
   if (!user) return NextResponse.json("Unauthorized", { status: 401 });
@@ -45,10 +44,9 @@ export async function DELETE(
 
 export async function PATCH(
   req: NextRequest,
-  context: { params: { commentId: string } }
+  { params }: { params: Promise<{ commentId: string }> }
 ) {
-  const resolvedParams = await Promise.resolve(context.params);
-  const { commentId } = resolvedParams;
+  const { commentId } = await params;
 
   const user = await getCurrentUser();
   if (!user) {
