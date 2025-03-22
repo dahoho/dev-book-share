@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  SubmitHandler,
-  UseFormHandleSubmit,
-  UseFormRegister,
-} from "react-hook-form";
+import { SubmitHandler, UseFormHandleSubmit } from "react-hook-form";
 
 import { GithubIcon, GoogleIcon } from "@/components/icon";
 import { LoginButton } from "@/components/loginButton";
@@ -22,7 +18,6 @@ type LoginFormPresentationalPropsType = {
   handleGoogleSignIn: () => void;
   onSubmit: SubmitHandler<InputsType>;
   handleSubmit: UseFormHandleSubmit<InputsType, undefined>;
-  register: UseFormRegister<InputsType>;
 };
 
 export const LoginFormPresentational = ({
@@ -34,7 +29,6 @@ export const LoginFormPresentational = ({
   handleGoogleSignIn,
   onSubmit,
   handleSubmit,
-  register,
 }: LoginFormPresentationalPropsType) => {
   return (
     <form

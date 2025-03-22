@@ -13,11 +13,7 @@ export const LoginFormContainer = () => {
   const [isGithubLoading, setIsGithubLoading] = useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<InputsType>();
+  const { register, handleSubmit } = useForm<InputsType>();
 
   const onSubmit: SubmitHandler<InputsType> = async (data: InputsType) => {
     await signIn("email", {
