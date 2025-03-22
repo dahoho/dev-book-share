@@ -29,7 +29,7 @@ type EditorOperationType = {
   setValue: UseFormSetValue<postPatchSchemaType>;
   onSubmit: (data: postPatchSchemaType) => Promise<string | number | undefined>;
   operation: "publish" | "draft" | null;
-  post?: PostWithAuthor;
+  post?: PostWithAuthor | null;
 };
 
 export const EditorOperationPresentational = ({
