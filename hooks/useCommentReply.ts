@@ -14,7 +14,7 @@ type CommentListPropsType = {
     content: string;
     postId: string;
     updatedAt: Date;
-    parentId?: string;
+    parentId?: string | null;
     replies?: CommentListPropsType["initialComment"][];
   };
   user?: User;
