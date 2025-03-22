@@ -25,9 +25,8 @@ lowlight.register("js", js);
 lowlight.register("ts", ts);
 
 type EditorPropsType = {
-  setValue: UseFormSetValue<{
-    content: string;
-  }>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setValue: UseFormSetValue<any>;
   placeholder: string;
 };
 
