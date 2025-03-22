@@ -1,0 +1,22 @@
+{
+  // デフォルトのフォーマッタとして Prettier (esbenp.prettier-vscode) を使用する
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ファイル保存時に自動でコードをフォーマットする
+  "editor.formatOnSave": true,
+
+  // ペースト時に自動でコードをフォーマットする
+  "editor.formatOnPaste": true,
+
+  // ファイル保存時にコードアクションを実行する設定
+  // ここでは、足りないインポート文を明示的に追加する動作を指定
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "explicit"
+  },
+
+  // JavaScriptファイルでモジュールをインポートする際、相対パスを使用しない
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+
+  // TypeScriptファイルでモジュールをインポートする際、相対パスを使用しない
+  "typescript.preferences.importModuleSpecifier": "non-relative"
+}
