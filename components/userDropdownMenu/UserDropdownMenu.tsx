@@ -24,7 +24,7 @@ export const UserDropdownMenu = ({ user }: UserDropdownMenuPropsType) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Avatar className="cursor-pointer">
+        <Avatar className="cursor-pointer w-9 h-9">
           <AvatarImage src={user.image ?? ""} alt={user.name ?? ""} />
         </Avatar>
       </DropdownMenuTrigger>
