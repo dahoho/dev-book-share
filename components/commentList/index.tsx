@@ -1,1 +1,1 @@
-export { CommentList } from "./CommentList";
+export { CommentListContainer as CommentList } from "@/components/commentList/container";

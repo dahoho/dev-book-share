@@ -1,17 +1,15 @@
 "use client";
 
+import { CommentList } from "@/components/commentList";
 import { CommentOperation } from "@/components/commentOperation";
 import { InlineCommentEditor } from "@/components/inlineCommentEditor";
 import { LikeButton } from "@/components/likeButton";
 import { ReplyButton } from "@/components/replyButton";
 import { Separator } from "@/components/ui/separator";
 import { DATE_FORMAT } from "@/constans";
-import { useCommentEditing } from "@/hooks/useCommentEditing";
-import { useCommentReply } from "@/hooks/useCommentReply";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import dayjs from "dayjs";
 import { User } from "next-auth";
-import { useState } from "react";
 
 type CommentListPropsType = {
   initialComment: {
@@ -33,36 +31,32 @@ type CommentListPropsType = {
   post: {
     createdAt: Date;
   };
-  onRemoveFromParent?: (commentId: string) => void;
+  handleDeleteSuccess: (commentId: string) => void;
+  isEditing: boolean;
+  setIsEditing: (value: boolean) => void;
+  isReplying: boolean;
+  setIsReplying: (value: boolean) => void;
+  replies: CommentListPropsType["initialComment"][];
+  handleSaveEdit: (newContent: string) => void;
+  handleReply: (replyContent: string) => void;
+  removeReply: (commentId: string) => void;
+  comment: CommentListPropsType["initialComment"];
 };
 
-export const CommentList = ({
-  initialComment,
+export const CommentListPresentational = ({
   user,
   post,
-  onRemoveFromParent,
+  isEditing,
+  setIsEditing,
+  isReplying,
+  setIsReplying,
+  replies,
+  handleSaveEdit,
+  handleReply,
+  removeReply,
+  comment,
+  handleDeleteSuccess,
 }: CommentListPropsType) => {
-  const [isDeleted, setIsDeleted] = useState<boolean>(false);
-  const { isEditing, setIsEditing, comment, handleSaveEdit } =
-    useCommentEditing(initialComment);
-  const { isReplying, setIsReplying, replies, handleReply, removeReply } =
-    useCommentReply({
-      initialComment,
-      comment,
-    });
-
-  const handleDeleteSuccess = (commentId: string) => {
-    if (commentId === comment.id) {
-      // 自分自身が削除された場合
-      setIsDeleted(true);
-      // 親リストから削除するための通知
-      if (onRemoveFromParent) onRemoveFromParent(commentId);
-    }
-  };
-
-  // 削除済みのコメントは表示しない
-  if (isDeleted) return null;
-
   return (
     <li key={comment.id}>
       <div className="flex items-center gap-2 justify-between">
