@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
-export const PostButton = () => {
-  const router = useRouter();
+type PostButtonPresentationalPropsType = {
+  handleClick: () => void;
+};
 
-  const handleClick = () => {
-    router.push("/editor/new");
-  };
-
+export const PostButtonPresentational = ({
+  handleClick,
+}: PostButtonPresentationalPropsType) => {
   return (
     <Button
       onClick={handleClick}

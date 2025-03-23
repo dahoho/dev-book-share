@@ -1,1 +1,1 @@
-export { Profile } from "./Profile";
+export { ProfileContainer as Profile } from "@/components/profile/container";

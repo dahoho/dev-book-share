@@ -1,4 +1,4 @@
-import { LikeButtonPresentational } from "@/components/likeButton/LikeButton";
+import { LikeButtonPresentational } from "@/components/likeButton/presentational";
 import { useState, useCallback, useEffect } from "react";
 
 type LikeButtonProps = {

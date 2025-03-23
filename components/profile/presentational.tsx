@@ -1,14 +1,18 @@
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
-import { User } from "next-auth";
 
-type ProfilePropsType = {
-  user?: User;
+type ProfilePresentationalPropsType = {
+  userImage: string;
+  userName: string;
+  userBio: string;
   totalLikes: number;
 };
 
-export const Profile = ({ user, totalLikes }: ProfilePropsType) => {
-  if (!user) return null;
-
+export const ProfilePresentational = ({
+  userImage,
+  userName,
+  userBio,
+  totalLikes,
+}: ProfilePresentationalPropsType) => {
   return (
     <section>
       <h2 className="text-3xl font-bold">プロフィール</h2>
@@ -16,15 +20,15 @@ export const Profile = ({ user, totalLikes }: ProfilePropsType) => {
         <Avatar>
           <AvatarImage
             className={`w-24 rounded-full`}
-            src={user.image ?? ""}
-            alt={user.name ?? ""}
+            src={userImage}
+            alt={userName}
           />
         </Avatar>
         <div>
-          <p className="text-xl font-bold">{user.name}</p>
+          <p className="text-xl font-bold">{userName}</p>
           <p className="mt-4 leading-4">
-            {user.bio
-              ? user.bio
+            {userBio
+              ? userBio
               : "自己紹介文はまだ設定されていません。アカウント設定から設定してください。"}
           </p>
           <div className="flex items-end font-bold gap-1 mt-4">

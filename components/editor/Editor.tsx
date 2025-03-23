@@ -14,8 +14,9 @@ import Underline from "@tiptap/extension-underline";
 import Link from "@tiptap/extension-link";
 import { Toolbar } from "@/components/toolbar";
 import Image from "@tiptap/extension-image";
-import { CodeBlockComponent } from "@/components/CodeBlockComponent";
+
 import { UseFormSetValue } from "react-hook-form";
+import { CodeBlockComponent } from "@/components/codeBlockComponent";
 
 const lowlight = createLowlight(all);
 

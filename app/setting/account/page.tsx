@@ -1,6 +1,6 @@
 import { LayoutContainer } from "@/components/layout/layout/container";
 import { MainLayout } from "@/components/layout/mainLayout";
-import ProfileForm from "@/components/profileForm/ProfileForm";
+import { ProfileForm } from "@/components/profileForm";
 
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";

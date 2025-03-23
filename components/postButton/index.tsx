@@ -1,1 +1,1 @@
-export { PostButton } from "./PostButton";
+export { PostButtonContainer as PostButton } from "@/components/postButton/container";

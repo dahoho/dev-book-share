@@ -1,1 +1,1 @@
-export { InlineCommentEditor } from "./inlineCommentEditor";
+export { InlineCommentEditorContainer as InlineCommentEditor } from "@/components/inlineCommentEditor/container";

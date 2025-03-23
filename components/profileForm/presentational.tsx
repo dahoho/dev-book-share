@@ -1,50 +1,25 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2 } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 
 type ProfileFormProps = {
-  initialName?: string | null;
-  initialBio?: string | null;
+  name: string;
+  bio: string;
+  setName: (name: string) => void;
+  setBio: (bio: string) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  isSaving: boolean;
 };
 
-export default function ProfileForm({
-  initialName,
-  initialBio,
-}: ProfileFormProps) {
-  const [name, setName] = useState(initialName || "");
-  const [bio, setBio] = useState(initialBio || "");
-  const [isSaving, setIsSaving] = useState<boolean>(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSaving(true);
-
-    const response = await fetch("/api/profile", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, bio }),
-    });
-
-    setIsSaving(false);
-
-    if (!response.ok) {
-      return toast.error("問題が発生しました", {
-        description:
-          "プロフィールが更新されませんでした。もう一度お試しください。",
-      });
-    }
-
-    toast.success("success", {
-      description: "プロフィールが更新されました。",
-    });
-  };
-
+export const ProfileFormPresentational = ({
+  name,
+  bio,
+  setName,
+  setBio,
+  handleSubmit,
+  isSaving,
+}: ProfileFormProps) => {
   return (
     <form onSubmit={handleSubmit} className="mt-14">
       <h2 className="text-2xl font-bold">プロフィール</h2>
@@ -76,4 +51,4 @@ export default function ProfileForm({
       </div>
     </form>
   );
-}
+};
