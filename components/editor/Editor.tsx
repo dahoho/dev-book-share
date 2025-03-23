@@ -16,7 +16,7 @@ import { Toolbar } from "@/components/toolbar";
 import Image from "@tiptap/extension-image";
 
 import { UseFormSetValue } from "react-hook-form";
-import { CodeBlockComponent } from "@/components/codeBlockComponent/CodeBlockComponent";
+import { CodeBlockComponent } from "@/components/codeBlockComponent";
 
 const lowlight = createLowlight(all);
 
