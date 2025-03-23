@@ -1,1 +1,1 @@
-export { CodeBlockComponent } from "./CodeBlockComponent";
+export { CodeBlockComponent } from "../codeBlockComponent/CodeBlockComponent";

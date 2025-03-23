@@ -60,7 +60,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
           ))}
         </ul>
         <div
-          className="prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl mt-12 focus:outline-none"
+          className="prose prose-sm sm:prose-base lg:prose-lg mt-12 focus:outline-none"
           dangerouslySetInnerHTML={{
             __html: String(post.content ? post.content : ""),
           }}
