@@ -1,3 +1,7 @@
+/**
+ * @package
+ */
+
 "use client";
 
 import { Post } from "@prisma/client";
