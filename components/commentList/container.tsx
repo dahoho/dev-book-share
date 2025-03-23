@@ -1,3 +1,5 @@
+"use client";
+
 import { CommentListPresentational } from "@/components/commentList/presentational";
 import { useCommentEditing } from "@/hooks/useCommentEditing";
 import { useCommentReply } from "@/hooks/useCommentReply";
