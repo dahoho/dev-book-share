@@ -13,8 +13,8 @@ export const ProfileFormContainer = ({
   initialName,
   initialBio,
 }: ProfileFormContainerPropsType) => {
-  const [name, setName] = useState(initialName || "");
-  const [bio, setBio] = useState(initialBio || "");
+  const [name, setName] = useState<string>(initialName || "");
+  const [bio, setBio] = useState<string>(initialBio || "");
   const [isSaving, setIsSaving] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

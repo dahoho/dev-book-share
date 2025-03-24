@@ -33,8 +33,10 @@ export const useCommentReply = ({
   initialComment,
   comment,
 }: CommentReplyType) => {
-  const [isReplying, setIsReplying] = useState(false);
-  const [replies, setReplies] = useState(initialComment.replies || []);
+  const [isReplying, setIsReplying] = useState<boolean>(false);
+  const [replies, setReplies] = useState<
+    CommentListPropsType["initialComment"][]
+  >(initialComment.replies || []);
 
   useEffect(() => {
     setReplies(initialComment.replies || []);
