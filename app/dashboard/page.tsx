@@ -1,3 +1,4 @@
+import { PageTitle } from "@/components/heading/pageTitle";
 import { LayoutContainer } from "@/components/layout/layout/container";
 import { MainLayout } from "@/components/layout/mainLayout";
 
@@ -19,7 +20,7 @@ export default async function DashboardPage() {
   return (
     <LayoutContainer user={user}>
       <MainLayout>
-        <h2 className="text-3xl font-bold">記事の管理</h2>
+        <PageTitle title="記事の管理" />
         <div className="mt-12">
           <PostList post={post} />
         </div>

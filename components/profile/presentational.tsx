@@ -1,3 +1,4 @@
+import { PageTitle } from "@/components/heading/pageTitle";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 
 type ProfilePresentationalPropsType = {
@@ -15,7 +16,7 @@ export const ProfilePresentational = ({
 }: ProfilePresentationalPropsType) => {
   return (
     <section>
-      <h2 className="text-3xl font-bold">プロフィール</h2>
+      <PageTitle title="プロフィール" />
       <div className="flex gap-6 mt-14">
         <Avatar>
           <AvatarImage

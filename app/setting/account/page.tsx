@@ -1,3 +1,4 @@
+import { PageTitle } from "@/components/heading/pageTitle";
 import { LayoutContainer } from "@/components/layout/layout/container";
 import { MainLayout } from "@/components/layout/mainLayout";
 import { ProfileForm } from "@/components/profileForm";
@@ -15,7 +16,7 @@ export default async function SettingAccountPage() {
   return (
     <LayoutContainer user={user}>
       <MainLayout>
-        <h2 className="text-3xl font-bold">Settings</h2>
+        <PageTitle title="Settings" />
         <ProfileForm initialName={user.name} initialBio={user.bio} />
       </MainLayout>
     </LayoutContainer>
