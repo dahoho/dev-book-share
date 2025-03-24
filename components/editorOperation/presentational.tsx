@@ -42,9 +42,7 @@ export const EditorOperationPresentational = ({
   operation,
   post,
 }: EditorOperationType) => {
-  const placeholderText = `学び、よく分からなかったこと、気づきなどを共有しましょう
-
-※MarkDown記法が使えます。`;
+  const placeholderText = `学び、よく分からなかったこと、気づきなどを共有しましょう\n※MarkDown記法が使えます。`;
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input

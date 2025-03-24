@@ -21,9 +21,8 @@ export const CommentFormPresentational = ({
   setValue,
   onSubmit,
 }: CommentFormType) => {
-  const placeholderText = `コメントする
+  const placeholderText = `コメントする\n※MarkDown記法が使えます。`;
 
-※MarkDown記法が使えます。`;
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>

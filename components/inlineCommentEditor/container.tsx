@@ -16,9 +16,7 @@ export const InlineCommentEditorContainer = ({
   onSave,
 }: InlineCommentEditorContainerPropsType) => {
   const [content, setContent] = useState<string>(initialContent);
-  const placeholderText = `このコメントについて返信する
-
-※MarkDown記法が使えます。`;
+  const placeholderText = `このコメントについて返信する\n※MarkDown記法が使えます。`;
 
   const editor = useEditor({
     extensions: [
