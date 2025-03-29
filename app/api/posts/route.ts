@@ -7,6 +7,7 @@ const postCreateSchema = z.object({
   title: z.string(),
   content: z.string().optional(),
   published: z.boolean(),
+  tags: z.array(z.string()).default([]),
 });
 
 export async function POST(req: NextRequest) {
@@ -21,13 +22,14 @@ export async function POST(req: NextRequest) {
     // リクエストボディからJSONを取得
     const json = await req.json();
     const body = postCreateSchema.parse(json);
-    const { title, content, published } = body;
+    const { title, content, published, tags } = body;
 
     const post = await db.post.create({
       data: {
         title,
         content,
         published,
+        tags,
         authorId: user?.id || "",
       },
       select: {

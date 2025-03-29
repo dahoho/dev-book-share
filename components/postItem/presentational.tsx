@@ -37,7 +37,7 @@ export const PostItemPresentational = ({
           <PostOperation postId={post.id} />
         </div>
       )}
-      <Link className="block p-4" href={`/post/${post.id}`}>
+      <Link className="block h-full p-4" href={`/post/${post.id}`}>
         <div className="flex items-center gap-2 justify-between">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
@@ -73,18 +73,18 @@ export const PostItemPresentational = ({
         </div>
 
         <p className="text-xl font-bold mt-4">{post.title}</p>
-
-        <div className="flex items-center gap-2 mt-4">
-          <ul className="flex items-center gap-2">
+        {post.tags.length > 0 && (
+          <ul className="flex items-center flex-wrap gap-2 text-xs mt-4">
             {post.tags.map((tag) => (
-              <li key={tag}>
-                <Badge>{tag}</Badge>
-              </li>
+              <li key={tag}># {tag}</li>
             ))}
           </ul>
+        )}
+
+        <div className="flex items-center gap-2 mt-6">
           <p className="text-sm flex items-center gap-1">
             <MessageCircle size={18} />
-            {post.numberOfAnswers}件
+            {post.numberOfAnswers} 件のコメント
           </p>
         </div>
       </Link>

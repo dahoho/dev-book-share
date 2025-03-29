@@ -33,7 +33,7 @@ export const SideBarPresentational = ({
                 <button
                   type="button"
                   onClick={() => setCategory(item.name)}
-                  className={`w-full py-4 px-2 hover:bg-gray-300 cursor-pointer ${
+                  className={`w-full py-4 px-2 hover:bg-gray-300 hover:underline cursor-pointer ${
                     category === item.name ? "bg-accent" : ""
                   }`}
                 >

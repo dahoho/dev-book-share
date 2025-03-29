@@ -55,6 +55,7 @@ export const EditorOperationContainer = ({
   }, [post, setValue]);
 
   const onSubmit = async (data: postPatchSchemaType) => {
+    console.log("data⭐️", data);
     if (post) {
       setIsSubmitting(true);
       const response = await fetch(`/api/posts/${postId}`, {
@@ -86,8 +87,10 @@ export const EditorOperationContainer = ({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...data,
+          title: data.title,
+          content: data.content,
           published: operation === "publish",
+          tags: data.tags,
         }),
       });
 
