@@ -21,7 +21,7 @@ export const LikeButtonPresentational = ({
       disabled={!userId || hasLiked}
       className="cursor-pointer flex items-center gap-1 text-xl"
     >
-      <div className="text-[#F76684]">
+      <div className="text-[#ff1744]">
         {hasLiked ? <FaHeart /> : <FaRegHeart />}
       </div>
       <span className="text-sm">{likeCount}</span>
